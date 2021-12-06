@@ -22,6 +22,12 @@ export function Signin ( props ) {
       <KeyboardAvoidingView 
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
+      <View style={styles.logoContainer}>
+        <Image 
+          style={styles.logo}
+          source={require('../assets/SUPERLY_logo.png')}
+        />
+      </View>
       <View style={styles.inner}>
         <Text>Email</Text>
         <TextInput 
@@ -39,7 +45,7 @@ export function Signin ( props ) {
         <Feedback message={props.error} />
         <View style={ styles.meta }>
           <Text style={styles.metaText}>Don't have an account?</Text>
-          <Button title="Sign up for an account" onPress={() => navigation.navigate("Signup")} />
+          <Button title="Register" onPress={() => navigation.navigate("Signup")} />
         </View>
       </View>
       </KeyboardAvoidingView>
@@ -49,11 +55,22 @@ export function Signin ( props ) {
 }
 
 const styles = StyleSheet.create( {
+  logoContainer:{
+    flex: 7/8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo:{
+    width: '60%',
+    resizeMode: 'contain',
+    margin: 'auto',
+  },
   input: {
     backgroundColor: ThemeColours.superGrey,
     fontSize: 16,
     padding: 5,
     borderRadius: 4,
+    marginBottom: 15,
   },
   button: {
     marginVertical: 15,

@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, Button } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { ThemeColours } from './ThemeColours';
 
@@ -39,9 +39,13 @@ export function Home ( props ) {
       <Text></Text>
       <TouchableOpacity style={styles.button} onPress={ () => { props.add('cities', data ) }}>
         <Text>Add something</Text>
+        <View>
+          <Button title="Suppliers" onPress={() => navigation.navigate("Suppliers")} />
+        </View>
       </TouchableOpacity>
       <FlatList data={ listData } renderItem={ renderItem} keyExtractor={item => item.id} />
     </View>
+    
   )
 }
 
